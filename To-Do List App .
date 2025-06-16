@@ -1,0 +1,55 @@
+import com.sun.media.sound.JARSoundbankReader;
+
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+
+        ArrayList<String> list = new ArrayList <String>();
+        Scanner scanner = new Scanner(System.in);
+        boolean active = true;
+
+        while (active) {
+            System.out.println();
+            System.out.println("--- To-Do App ---");
+            System.out.println("1. Add Task");
+            System.out.println("2. View all Tasks");
+            System.out.println("3. Clear all");
+            System.out.println("4. Exit");
+
+            System.out.println("Choose Option to continue: " );
+            String userInput = scanner.nextLine();
+
+            //USING SWITCH FOR DECISION_MAKING
+            switch (userInput) {
+                case "1" :
+                    System.out.println("Enter Task: " );
+                    String nameInput = scanner.nextLine();
+                    list.add(nameInput);
+                    System.out.println("Student Name add successful.");
+                    break;
+                case "2" :
+                        System.out.println();
+                        System.out.println("--- Student Names ---");
+                        if (list.isEmpty()) {
+                            System.out.println("No names available.");
+                    } else {
+                            for (int i=0; i<list.size(); i++) {
+                                System.out.println((i+1) + " - "+ list.get(i));
+                            }
+                        }
+                        break;
+                case "3" :
+                    System.out.println("List Formatted");
+                    list.clear();
+                    break;
+                case "4" :
+                    return;
+
+            }
+        }
+    }
+}
